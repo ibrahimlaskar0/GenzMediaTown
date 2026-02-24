@@ -2,11 +2,6 @@ import { useState, useEffect } from 'react';
 
 export type Theme = 'light' | 'dark';
 
-const getInitialTheme = (): Theme => {
-  // Always default to dark theme
-  return 'dark';
-};
-
 export const useTheme = () => {
   const [theme] = useState<Theme>('dark');
   const [mounted, setMounted] = useState(false);

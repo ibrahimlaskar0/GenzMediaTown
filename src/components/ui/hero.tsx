@@ -1,8 +1,6 @@
-"use client"
-
 import * as React from "react"
 import { motion } from "framer-motion"
-import { Eye, Star, Video } from "lucide-react"
+import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/neon-button"
 
 interface HeroAction {

@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from 'react';
 import { motion } from 'framer-motion';
 import pranayImg from '../../assets/pranay.jpeg';
@@ -37,11 +35,11 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
         right: 0,
         bottom: 0
       }}
-      onDragStart={(e) => {
-        dragRef.current = e.clientX;
+      onDragStart={(_e, info) => {
+        dragRef.current = info.point.x;
       }}
-      onDragEnd={(e) => {
-        if (dragRef.current - e.clientX > 150) {
+      onDragEnd={(_e, info) => {
+        if (dragRef.current - info.point.x > 150) {
           handleShuffle();
         }
         dragRef.current = 0;

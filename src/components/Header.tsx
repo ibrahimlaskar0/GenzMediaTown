@@ -15,19 +15,19 @@ const Header = () => {
       setIsScrolled(currentScrollY > 20);
       
       // Handle visibility based on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down & past 100px - hide header
-        setIsVisible(false);
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up - show header
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
+      setLastScrollY(prev => {
+        if (currentScrollY > prev && currentScrollY > 100) {
+          setIsVisible(false);
+        } else if (currentScrollY < prev) {
+          setIsVisible(true);
+        }
+        return currentScrollY;
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-  }, [lastScrollY]);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
