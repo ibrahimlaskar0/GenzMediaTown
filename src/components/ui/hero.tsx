@@ -160,6 +160,22 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(
                 ))}
               </div>
             )}
+
+            {/* Social proof stat */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ ease: "easeInOut", delay: 0.6, duration: 0.7 }}
+              className="mt-4 flex items-center gap-3"
+            >
+              <div className="flex items-center gap-3 px-5 py-2.5 rounded-full border border-[#C9A962]/30 bg-[#C9A962]/5 backdrop-blur-sm">
+                <span className="text-[#C9A962] text-xl font-bold tracking-tight">100M+</span>
+                <div className="w-px h-4 bg-[#C9A962]/30" />
+                <span className="text-white/70 text-sm font-medium tracking-wide uppercase">Views Generated</span>
+              </div>
+            </motion.div>
+
           </div>
         </motion.div>
       </section>
